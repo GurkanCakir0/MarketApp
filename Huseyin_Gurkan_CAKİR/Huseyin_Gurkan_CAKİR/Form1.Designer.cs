@@ -335,21 +335,21 @@ namespace Huseyin_Gurkan_CAKİR
             this.UrunKodu.HeaderText = "Ürün Kodu";
             this.UrunKodu.MinimumWidth = 6;
             this.UrunKodu.Name = "UrunKodu";
-            this.UrunKodu.Width = 300;
+            this.UrunKodu.Width = 225;
             // 
             // UrunAdi
             // 
             this.UrunAdi.HeaderText = "Ürün Adı";
             this.UrunAdi.MinimumWidth = 6;
             this.UrunAdi.Name = "UrunAdi";
-            this.UrunAdi.Width = 320;
+            this.UrunAdi.Width = 225;
             // 
             // Urunkg
             // 
             this.Urunkg.HeaderText = "Ürün KG Fiyatı";
             this.Urunkg.MinimumWidth = 6;
             this.Urunkg.Name = "Urunkg";
-            this.Urunkg.Width = 300;
+            this.Urunkg.Width = 225;
             // 
             // MARKETAPP
             // 
