@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Huseyin_Gurkan_CAKİR
 {
-    public partial class Form1 : Form
+    public partial class MARKETAPP : Form
     {
-        public Form1()
+        public MARKETAPP()
         {
             InitializeComponent();
         }

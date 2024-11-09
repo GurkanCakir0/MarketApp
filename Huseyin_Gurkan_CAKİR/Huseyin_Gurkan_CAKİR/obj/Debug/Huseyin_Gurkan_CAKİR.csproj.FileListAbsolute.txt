@@ -1,0 +1,10 @@
+C:\Users\GURKAN\source\repos\MarketApp\Huseyin_Gurkan_CAKİR\Huseyin_Gurkan_CAKİR\bin\Debug\Huseyin_Gurkan_CAKİR.exe.config
+C:\Users\GURKAN\source\repos\MarketApp\Huseyin_Gurkan_CAKİR\Huseyin_Gurkan_CAKİR\bin\Debug\Huseyin_Gurkan_CAKİR.exe
+C:\Users\GURKAN\source\repos\MarketApp\Huseyin_Gurkan_CAKİR\Huseyin_Gurkan_CAKİR\bin\Debug\Huseyin_Gurkan_CAKİR.pdb
+C:\Users\GURKAN\source\repos\MarketApp\Huseyin_Gurkan_CAKİR\Huseyin_Gurkan_CAKİR\obj\Debug\Huseyin_Gurkan_CAKİR.csproj.AssemblyReference.cache
+C:\Users\GURKAN\source\repos\MarketApp\Huseyin_Gurkan_CAKİR\Huseyin_Gurkan_CAKİR\obj\Debug\Huseyin_Gurkan_CAKİR.MARKETAPP.resources
+C:\Users\GURKAN\source\repos\MarketApp\Huseyin_Gurkan_CAKİR\Huseyin_Gurkan_CAKİR\obj\Debug\Huseyin_Gurkan_CAKİR.Properties.Resources.resources
+C:\Users\GURKAN\source\repos\MarketApp\Huseyin_Gurkan_CAKİR\Huseyin_Gurkan_CAKİR\obj\Debug\Huseyin_Gurkan_CAKİR.csproj.GenerateResource.cache
+C:\Users\GURKAN\source\repos\MarketApp\Huseyin_Gurkan_CAKİR\Huseyin_Gurkan_CAKİR\obj\Debug\Huseyin_Gurkan_CAKİR.csproj.CoreCompileInputs.cache
+C:\Users\GURKAN\source\repos\MarketApp\Huseyin_Gurkan_CAKİR\Huseyin_Gurkan_CAKİR\obj\Debug\Huseyin_Gurkan_CAKİR.exe
+C:\Users\GURKAN\source\repos\MarketApp\Huseyin_Gurkan_CAKİR\Huseyin_Gurkan_CAKİR\obj\Debug\Huseyin_Gurkan_CAKİR.pdb
