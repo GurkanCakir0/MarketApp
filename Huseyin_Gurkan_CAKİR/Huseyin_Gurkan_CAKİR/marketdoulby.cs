@@ -40,7 +40,6 @@ namespace Huseyin_Gurkan_CAKİR
             else if (Head.Sonraki == null)
             {
                 Head = Tail = null;
-                System.Windows.Forms.MessageBox.Show("Son Üründe Silindi");
             }
             else
             {

@@ -47,11 +47,13 @@ namespace Huseyin_Gurkan_CAKİR
             {
                 market.Sil();
                 textBox4.Clear();
+                textBox5.Clear();
+                textBox6.Clear();
                 MessageBox.Show("Ürün Silindi");
             }
             else
             {
-                MessageBox.Show("Lütfen geçerli bir öğrenci numarası girin.");
+                MessageBox.Show("Lütfen geçerli bir ürün kodu girin.");
             }
             ListeleUrunler();
         }
@@ -86,6 +88,44 @@ namespace Huseyin_Gurkan_CAKİR
         private void listele_Click(object sender, EventArgs e)
         {
             ListeleUrunler();
+        }
+
+        private void bul_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(textBox4.Text, out int k))
+            {
+                Urun urun = market.UrunBul(k);
+                if (urun != null)
+                {
+                    textBox4.Text = urun.kodu.ToString();
+                    textBox5.Text = urun.adi;
+                    textBox6.Text = urun.fiyat.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Ürün Bulunamadı");
+                }
+
+            }
+        }
+
+        private void bul1_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(textBox7.Text, out int k))
+            {
+                Urun urun = market.UrunBul(k);
+                if (urun != null)
+                {
+                    textBox7.Text = urun.kodu.ToString();
+                    textBox8.Text = urun.adi;
+                    textBox9.Text = urun.fiyat.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Ürün Bulunamadı");
+                }
+
+            }
         }
     }
 }

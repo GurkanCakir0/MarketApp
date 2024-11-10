@@ -218,16 +218,18 @@ namespace Huseyin_Gurkan_CAKİR
             // 
             // textBox5
             // 
+            this.textBox5.Enabled = false;
             this.textBox5.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(503, 221);
+            this.textBox5.Location = new System.Drawing.Point(503, 169);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(189, 34);
             this.textBox5.TabIndex = 16;
             // 
             // textBox6
             // 
+            this.textBox6.Enabled = false;
             this.textBox6.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(503, 169);
+            this.textBox6.Location = new System.Drawing.Point(503, 221);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(189, 34);
             this.textBox6.TabIndex = 16;
@@ -242,6 +244,7 @@ namespace Huseyin_Gurkan_CAKİR
             // 
             // textBox8
             // 
+            this.textBox8.Enabled = false;
             this.textBox8.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox8.Location = new System.Drawing.Point(930, 169);
             this.textBox8.Name = "textBox8";
@@ -309,6 +312,7 @@ namespace Huseyin_Gurkan_CAKİR
             this.bul.TabIndex = 24;
             this.bul.Text = "BUL";
             this.bul.UseVisualStyleBackColor = true;
+            this.bul.Click += new System.EventHandler(this.bul_Click);
             // 
             // bul1
             // 
@@ -319,6 +323,7 @@ namespace Huseyin_Gurkan_CAKİR
             this.bul1.TabIndex = 25;
             this.bul1.Text = "BUL";
             this.bul1.UseVisualStyleBackColor = true;
+            this.bul1.Click += new System.EventHandler(this.bul1_Click);
             // 
             // dataGridView1
             // 
