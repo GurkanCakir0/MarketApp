@@ -19,6 +19,16 @@ namespace Huseyin_Gurkan_CAKİR
 
         public void Ekle(int k, string a, double f)
         {
+            Urun temp = Head;
+            while (temp != null)
+            {
+                if (temp.kodu == k)
+                {
+                    System.Windows.Forms.MessageBox.Show("Bu ürün kodu zaten mevcut. Lütfen farklı bir kod girin.");
+                    return; 
+                }
+                temp = temp.Sonraki; 
+            }
             Urun urun = new Urun(k,a,f);
             if (Head == null)
             {

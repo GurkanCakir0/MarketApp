@@ -21,20 +21,34 @@ namespace Huseyin_Gurkan_CAKİR
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            var urunler = File.ReadLines(@"C:\Users\GURKAN\source\repos\MarketApp\Huseyin_Gurkan_CAKİR\Huseyin_Gurkan_CAKİR\Urun Data.txt");
-
         }
 
         private void ekle_Click(object sender, EventArgs e)
         {
             if (int.TryParse(textBox1.Text, out int k) && !string.IsNullOrWhiteSpace(textBox2.Text) && double.TryParse(textBox3.Text.Trim(), out double f))
             {
-                string a = textBox2.Text.Trim();
-                market.Ekle(k, a, f);
-                textBox1.Clear();
-                textBox2.Clear();
-                textBox3.Clear();
-                MessageBox.Show("Ürün Başarıyla Kaydedildi");
+                bool sonuc = false;
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    if (row.Cells["UrunKodu"].Value != null && (int)row.Cells["UrunKodu"].Value == k)
+                    {
+                        sonuc = true;
+                        break;
+                    }
+                }
+                if (sonuc)
+                {
+                    MessageBox.Show("Bu ürün kodu zaten mevcut. Lütfen farklı bir kod girin.");
+                }
+                else
+                {
+                    string a = textBox2.Text.Trim();
+                    market.Ekle(k, a, f);
+                    textBox1.Clear();
+                    textBox2.Clear();
+                    textBox3.Clear();
+                    MessageBox.Show("Ürün Başarıyla Kaydedildi");
+                }
             }
             else
             {
