@@ -51,12 +51,12 @@ namespace Huseyin_Gurkan_CAKİR
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.ekle = new System.Windows.Forms.Button();
+            this.sil = new System.Windows.Forms.Button();
+            this.guncelle = new System.Windows.Forms.Button();
+            this.listele = new System.Windows.Forms.Button();
+            this.bul = new System.Windows.Forms.Button();
+            this.bul1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.UrunKodu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UrunAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -256,65 +256,69 @@ namespace Huseyin_Gurkan_CAKİR
             this.textBox9.Size = new System.Drawing.Size(189, 34);
             this.textBox9.TabIndex = 19;
             // 
-            // button1
+            // ekle
             // 
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(146, 272);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(189, 41);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "EKLE";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ekle.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ekle.Location = new System.Drawing.Point(146, 272);
+            this.ekle.Name = "ekle";
+            this.ekle.Size = new System.Drawing.Size(189, 41);
+            this.ekle.TabIndex = 20;
+            this.ekle.Text = "EKLE";
+            this.ekle.UseVisualStyleBackColor = true;
+            this.ekle.Click += new System.EventHandler(this.ekle_Click);
             // 
-            // button2
+            // sil
             // 
-            this.button2.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(503, 272);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(189, 41);
-            this.button2.TabIndex = 21;
-            this.button2.Text = "SİL";
-            this.button2.UseVisualStyleBackColor = true;
+            this.sil.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sil.Location = new System.Drawing.Point(503, 272);
+            this.sil.Name = "sil";
+            this.sil.Size = new System.Drawing.Size(189, 41);
+            this.sil.TabIndex = 21;
+            this.sil.Text = "SİL";
+            this.sil.UseVisualStyleBackColor = true;
+            this.sil.Click += new System.EventHandler(this.sil_Click);
             // 
-            // button3
+            // guncelle
             // 
-            this.button3.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(930, 272);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(189, 41);
-            this.button3.TabIndex = 22;
-            this.button3.Text = "GÜNCELLE";
-            this.button3.UseVisualStyleBackColor = true;
+            this.guncelle.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guncelle.Location = new System.Drawing.Point(930, 272);
+            this.guncelle.Name = "guncelle";
+            this.guncelle.Size = new System.Drawing.Size(189, 41);
+            this.guncelle.TabIndex = 22;
+            this.guncelle.Text = "GÜNCELLE";
+            this.guncelle.UseVisualStyleBackColor = true;
+            this.guncelle.Click += new System.EventHandler(this.guncelle_Click);
             // 
-            // button4
+            // listele
             // 
-            this.button4.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(146, 334);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(973, 47);
-            this.button4.TabIndex = 23;
-            this.button4.Text = "ÜRÜN LİSTELE";
-            this.button4.UseVisualStyleBackColor = true;
+            this.listele.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listele.Location = new System.Drawing.Point(146, 334);
+            this.listele.Name = "listele";
+            this.listele.Size = new System.Drawing.Size(973, 47);
+            this.listele.TabIndex = 23;
+            this.listele.Text = "ÜRÜN LİSTELE";
+            this.listele.UseVisualStyleBackColor = true;
+            this.listele.Click += new System.EventHandler(this.listele_Click);
             // 
-            // button5
+            // bul
             // 
-            this.button5.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(707, 117);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 34);
-            this.button5.TabIndex = 24;
-            this.button5.Text = "BUL";
-            this.button5.UseVisualStyleBackColor = true;
+            this.bul.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bul.Location = new System.Drawing.Point(707, 117);
+            this.bul.Name = "bul";
+            this.bul.Size = new System.Drawing.Size(75, 34);
+            this.bul.TabIndex = 24;
+            this.bul.Text = "BUL";
+            this.bul.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // bul1
             // 
-            this.button6.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(1134, 117);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 34);
-            this.button6.TabIndex = 25;
-            this.button6.Text = "BUL";
-            this.button6.UseVisualStyleBackColor = true;
+            this.bul1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bul1.Location = new System.Drawing.Point(1134, 117);
+            this.bul1.Name = "bul1";
+            this.bul1.Size = new System.Drawing.Size(75, 34);
+            this.bul1.TabIndex = 25;
+            this.bul1.Text = "BUL";
+            this.bul1.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -358,12 +362,12 @@ namespace Huseyin_Gurkan_CAKİR
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1235, 667);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.bul1);
+            this.Controls.Add(this.bul);
+            this.Controls.Add(this.listele);
+            this.Controls.Add(this.guncelle);
+            this.Controls.Add(this.sil);
+            this.Controls.Add(this.ekle);
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.textBox7);
@@ -420,12 +424,12 @@ namespace Huseyin_Gurkan_CAKİR
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button ekle;
+        private System.Windows.Forms.Button sil;
+        private System.Windows.Forms.Button guncelle;
+        private System.Windows.Forms.Button listele;
+        private System.Windows.Forms.Button bul;
+        private System.Windows.Forms.Button bul1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn UrunKodu;
         private System.Windows.Forms.DataGridViewTextBoxColumn UrunAdi;

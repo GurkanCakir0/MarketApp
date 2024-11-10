@@ -29,7 +29,6 @@ namespace Huseyin_Gurkan_CAKİR
                 urun.Sonraki = Head;
                 Head.Onceki = urun;
                 Head = urun;
-                System.Windows.Forms.MessageBox.Show("Ürün Listeye Başarıyla Kayıt Edildi");
             }
         }
         public void Sil()
@@ -47,31 +46,50 @@ namespace Huseyin_Gurkan_CAKİR
             {
                 Head = Head.Sonraki;
                 Head.Onceki = null;
-                System.Windows.Forms.MessageBox.Show("Ürün Silindi");
             }
         }
-        public void Guncelle(int k, double f)
+        public void Guncelle(int k, double yf)
         {
-            if ()
+            Urun temp = Head;
+            while (temp != null)
             {
-
+                if (temp.kodu == k)
+                {
+                    temp.fiyat = yf;
+                    return;
+                }
+                temp = temp.Sonraki;
             }
+            System.Windows.Forms.MessageBox.Show("Ürün Bulunamadı");
         }
-        public string Listele()
+        public Urun UrunBul(int k)
+        {
+            Urun temp = Head;
+            while (temp != null)
+            {
+                if (temp.kodu == k)
+                {
+                    return temp;
+                }
+                temp = temp.Sonraki;
+            }
+            return null;
+        }
+        public List<Urun> Listele()
         {
             if (Head== null)
             {
-                return "Ürün Listesi Boş";
+                System.Windows.Forms.MessageBox.Show("Ürün Listesi Boş"); 
             }
-
+            List<Urun> urunler = new List<Urun>();
             Urun temp = Head;
-            string result = "";
+
             while (temp != null)
             {
-                result += temp.Sonraki + "";
+                urunler.Add(temp);
                 temp = temp.Sonraki;
             }
-            return result.Trim();
+            return urunler;
         }
     }
 }
