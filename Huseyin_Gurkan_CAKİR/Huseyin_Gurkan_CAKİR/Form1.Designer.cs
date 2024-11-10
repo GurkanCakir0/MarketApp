@@ -61,6 +61,7 @@ namespace Huseyin_Gurkan_CAKİR
             this.UrunKodu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UrunAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Urunkg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -327,6 +328,7 @@ namespace Huseyin_Gurkan_CAKİR
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.UrunKodu,
@@ -344,21 +346,28 @@ namespace Huseyin_Gurkan_CAKİR
             this.UrunKodu.HeaderText = "Ürün Kodu";
             this.UrunKodu.MinimumWidth = 6;
             this.UrunKodu.Name = "UrunKodu";
-            this.UrunKodu.Width = 225;
             // 
             // UrunAdi
             // 
             this.UrunAdi.HeaderText = "Ürün Adı";
             this.UrunAdi.MinimumWidth = 6;
             this.UrunAdi.Name = "UrunAdi";
-            this.UrunAdi.Width = 225;
             // 
             // Urunkg
             // 
             this.Urunkg.HeaderText = "Ürün KG Fiyatı";
             this.Urunkg.MinimumWidth = 6;
             this.Urunkg.Name = "Urunkg";
-            this.Urunkg.Width = 225;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(426, 27);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 27;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // MARKETAPP
             // 
@@ -366,6 +375,7 @@ namespace Huseyin_Gurkan_CAKİR
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1235, 667);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.bul1);
             this.Controls.Add(this.bul);
@@ -439,6 +449,7 @@ namespace Huseyin_Gurkan_CAKİR
         private System.Windows.Forms.DataGridViewTextBoxColumn UrunKodu;
         private System.Windows.Forms.DataGridViewTextBoxColumn UrunAdi;
         private System.Windows.Forms.DataGridViewTextBoxColumn Urunkg;
+        private System.Windows.Forms.Button button1;
     }
 }
 

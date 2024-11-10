@@ -31,20 +31,52 @@ namespace Huseyin_Gurkan_CAKİR
                 Head = urun;
             }
         }
-        public void Sil()
+        public void Sil(int k)
         {
+
             if (Head == null)
             {
                 System.Windows.Forms.MessageBox.Show("Ürün Listesi Boş");
+                return;
             }
-            else if (Head.Sonraki == null)
+            Urun temp = Head;
+            if (temp.kodu == k)
             {
-                Head = Tail = null;
+                Head = Head.Sonraki;
+                if (Head != null)
+                {
+                    Head.Onceki = null;
+                }
+                else
+                {
+                    Tail = null;
+                }
+                return;
+            }
+            while (temp != null && temp.kodu != k)
+            {
+                temp = temp.Sonraki;
+            }
+            if (temp != null)
+            {
+                if (temp.Onceki != null)
+                {
+                    temp.Onceki.Sonraki = temp.Sonraki;
+                }
+                if (temp.Sonraki != null)
+                {
+                    temp.Sonraki.Onceki = temp.Onceki;
+                }
+
+                else
+                {
+                    Tail = temp.Onceki;
+                }
+                System.Windows.Forms.MessageBox.Show("Ürün Silindi");
             }
             else
             {
-                Head = Head.Sonraki;
-                Head.Onceki = null;
+                System.Windows.Forms.MessageBox.Show("Ürün Bulunamadı");
             }
         }
         public void Guncelle(int k, double yf)
@@ -76,10 +108,6 @@ namespace Huseyin_Gurkan_CAKİR
         }
         public List<Urun> Listele()
         {
-            if (Head== null)
-            {
-                System.Windows.Forms.MessageBox.Show("Ürün Listesi Boş"); 
-            }
             List<Urun> urunler = new List<Urun>();
             Urun temp = Head;
 
@@ -87,6 +115,11 @@ namespace Huseyin_Gurkan_CAKİR
             {
                 urunler.Add(temp);
                 temp = temp.Sonraki;
+            }
+
+            if (urunler.Count == 0)
+            {
+                System.Windows.Forms.MessageBox.Show("Ürün Listesi Boş");
             }
             return urunler;
         }
