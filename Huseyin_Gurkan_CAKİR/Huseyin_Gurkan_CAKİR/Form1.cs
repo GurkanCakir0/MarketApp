@@ -21,34 +21,6 @@ namespace Huseyin_Gurkan_CAKİR
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string dosyaYolu = "UrunVeri.txt";
-
-            try
-            {
-                using (StreamReader sr = new StreamReader(dosyaYolu))
-                {
-                    string satir;
-                    while ((satir = sr.ReadLine()) != null)
-                    {
-                        string[] parcalar = satir.Split(',');
-
-                        if (parcalar.Length != 3)
-                            continue;
-
-                        int kodu = int.Parse(parcalar[0]);
-                        string adi = parcalar[1];
-                        double fiyat = double.Parse(parcalar[2]);
-
-                        dataGridView1.Rows.Add(kodu, adi, fiyat);
-                    }
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Dosya okunurken bir hata oluştu: " + ex.Message);
-            }
-
         }
 
         private void ekle_Click(object sender, EventArgs e)
@@ -71,6 +43,8 @@ namespace Huseyin_Gurkan_CAKİR
                 else
                 {
                     string a = textBox2.Text.Trim();
+                    dataGridView1.Rows.Add(k, a, f);
+                    YazDosya();
                     market.Ekle(k, a, f);
                     textBox1.Clear();
                     textBox2.Clear();
@@ -89,11 +63,21 @@ namespace Huseyin_Gurkan_CAKİR
         {
             if (int.TryParse(textBox4.Text, out int k))
             {
-                market.Sil(k);
-                textBox4.Clear();
-                textBox5.Clear();
-                textBox6.Clear();
-                
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    if (row.Cells[0].Value != null && (int)row.Cells[0].Value == k)
+                    {
+                        dataGridView1.Rows.Remove(row);
+                        YazDosya();
+                        MessageBox.Show("Ürün başarıyla silindi.");
+                        market.Sil(k);
+                        textBox4.Clear();
+                        textBox5.Clear();
+                        textBox6.Clear();
+                        return;
+                    }
+                }
+                MessageBox.Show("Ürün bulunamadı.");
             }
             else
             {
@@ -106,10 +90,19 @@ namespace Huseyin_Gurkan_CAKİR
         {
             if (int.TryParse(textBox7.Text, out int k)  && double.TryParse(textBox9.Text.Trim(), out double yf))
             {
-                market.Guncelle(k, yf);
-                textBox7.Clear();
-                textBox8.Clear();
-                textBox9.Clear();
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    if (row.Cells[0].Value != null && (int)row.Cells[0].Value == k)
+                    {
+                        row.Cells[2].Value = yf;
+                        YazDosya();
+                        market.Guncelle(k, yf);
+                        textBox7.Clear();
+                        textBox8.Clear();
+                        textBox9.Clear();
+                        return;
+                    }
+                }
             }
             else
             {
@@ -131,6 +124,34 @@ namespace Huseyin_Gurkan_CAKİR
 
         private void listele_Click(object sender, EventArgs e)
         {
+            string dosyaYolu = "urunler.txt";
+
+            try
+            {
+                using (StreamReader sr = new StreamReader(dosyaYolu))
+                {
+                    dataGridView1.Rows.Clear();
+                    string satir;
+                    while ((satir = sr.ReadLine()) != null)
+                    {
+                        string[] parcalar = satir.Split(',');
+
+                        if (parcalar.Length == 3)
+                        {
+                            int kod = int.Parse(parcalar[0]);
+                            string ad = parcalar[1];
+                            double fiyat = double.Parse(parcalar[2]);
+
+                            dataGridView1.Rows.Add(kod, ad, fiyat);
+                        }
+                    }
+                }
+                MessageBox.Show("Veriler başarıyla yüklendi.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Dosya okunurken bir hata oluştu: " + ex.Message);
+            }
             ListeleUrunler();
         }
 
@@ -169,6 +190,27 @@ namespace Huseyin_Gurkan_CAKİR
                     MessageBox.Show("Ürün Bulunamadı");
                 }
 
+            }
+        }
+        private void YazDosya()
+        {
+            string dosyaYolu = "UrunVeri.txt";
+            try
+            {
+                using (StreamWriter sw = new StreamWriter(dosyaYolu))
+                {
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        if (row.IsNewRow) continue;
+
+                        string satir = $"{row.Cells[0].Value},{row.Cells[1].Value},{row.Cells[2].Value}";
+                        sw.WriteLine(satir);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Dosya yazılırken bir hata oluştu: " + ex.Message);
             }
         }
 
