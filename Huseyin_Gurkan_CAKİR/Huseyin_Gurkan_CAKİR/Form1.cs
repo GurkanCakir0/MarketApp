@@ -43,36 +43,12 @@ namespace Huseyin_Gurkan_CAKİR
                     }
                 }
 
-                MessageBox.Show("Veriler başarıyla yüklendi.");
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Dosya okunurken bir hata oluştu: " + ex.Message);
             }
 
-
-            Cursor.Current = Cursors.WaitCursor;
-            SaveFileDialog sf = new SaveFileDialog();
-            sf.Filter = "(*.txt)|*.txt";
-            sf.FileName = "UrunDatam";
-            if (sf.ShowDialog() == DialogResult.OK)
-            {
-                FileStream fs = new FileStream(sf.FileName, FileMode.OpenOrCreate, FileAccess.Write);
-                fs.Close();
-
-                for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
-                {
-
-                    int kodu = Convert.ToInt32(dataGridView1.Rows[i].Cells["UrunKodu"].Value);
-
-                    string adi = dataGridView1.Rows[i].Cells["UrunAdi"].Value.ToString();
-                    double fiyat = Convert.ToDouble(dataGridView1.Rows[i].Cells["Urunkg"].Value);
-
-                    string içerik = kodu.ToString() + ";" + "\t\t" + adi + ";" + "\t\t" + fiyat.ToString("N2");
-                    File.AppendAllText(sf.FileName, içerik + Environment.NewLine);
-                }
-            }
-            Cursor.Current = Cursors.Default;
         }
 
         private void ekle_Click(object sender, EventArgs e)
