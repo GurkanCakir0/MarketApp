@@ -21,6 +21,58 @@ namespace Huseyin_Gurkan_CAKİR
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            string dosyaYolu = "UrunVeri.txt";
+
+            try
+            {
+                using (StreamReader sr = new StreamReader(dosyaYolu))
+                {
+                    string satir;
+                    while ((satir = sr.ReadLine()) != null)
+                    {
+                        string[] parcalar = satir.Split(',');
+
+                        if (parcalar.Length != 3)
+                            continue;
+
+                        int kodu = int.Parse(parcalar[0]);
+                        string adi = parcalar[1];
+                        double fiyat = double.Parse(parcalar[2]);
+
+                        dataGridView1.Rows.Add(kodu, adi, fiyat);
+                    }
+                }
+
+                MessageBox.Show("Veriler başarıyla yüklendi.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Dosya okunurken bir hata oluştu: " + ex.Message);
+            }
+
+
+            Cursor.Current = Cursors.WaitCursor;
+            SaveFileDialog sf = new SaveFileDialog();
+            sf.Filter = "(*.txt)|*.txt";
+            sf.FileName = "UrunDatam";
+            if (sf.ShowDialog() == DialogResult.OK)
+            {
+                FileStream fs = new FileStream(sf.FileName, FileMode.OpenOrCreate, FileAccess.Write);
+                fs.Close();
+
+                for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+                {
+
+                    int kodu = Convert.ToInt32(dataGridView1.Rows[i].Cells["UrunKodu"].Value);
+
+                    string adi = dataGridView1.Rows[i].Cells["UrunAdi"].Value.ToString();
+                    double fiyat = Convert.ToDouble(dataGridView1.Rows[i].Cells["Urunkg"].Value);
+
+                    string içerik = kodu.ToString() + ";" + "\t\t" + adi + ";" + "\t\t" + fiyat.ToString("N2");
+                    File.AppendAllText(sf.FileName, içerik + Environment.NewLine);
+                }
+            }
+            Cursor.Current = Cursors.Default;
         }
 
         private void ekle_Click(object sender, EventArgs e)
@@ -54,7 +106,7 @@ namespace Huseyin_Gurkan_CAKİR
             {
                 MessageBox.Show("Lütfen Geçerli Bir Veri Giriniz");
             }
-            ListeleUrunler();
+
         }
 
         private void sil_Click(object sender, EventArgs e)
@@ -65,13 +117,13 @@ namespace Huseyin_Gurkan_CAKİR
                 textBox4.Clear();
                 textBox5.Clear();
                 textBox6.Clear();
-                MessageBox.Show("Ürün Silindi");
+                
             }
             else
             {
                 MessageBox.Show("Lütfen geçerli bir ürün kodu girin.");
             }
-            ListeleUrunler();
+
         }
 
         private void guncelle_Click(object sender, EventArgs e)
@@ -82,13 +134,12 @@ namespace Huseyin_Gurkan_CAKİR
                 textBox7.Clear();
                 textBox8.Clear();
                 textBox9.Clear();
-                MessageBox.Show("Ürün Fiyatı Güncellendi");
             }
             else
             {
                 MessageBox.Show("Lütfen Geçerli Bir Veri Giriniz");
             }
-            ListeleUrunler();
+
         }
         private void ListeleUrunler()
         {
@@ -145,46 +196,6 @@ namespace Huseyin_Gurkan_CAKİR
             }
         }
 
-        private void DosyaOlustur()
-        {
-
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Cursor.Current = Cursors.WaitCursor;
-            SaveFileDialog sf = new SaveFileDialog();
-            sf.Filter = "Text Dosyası (*.txt)|*.txt";
-            sf.FileName = "Urun Data";
-            if (sf.ShowDialog() == DialogResult.OK)
-            {
-                FileStream fs = new FileStream(sf.FileName, FileMode.OpenOrCreate, FileAccess.Write);
-                fs.Close();
-                for (int i = 0; i < dataGridView1.Rows.Count; i++)
-                {
-
-                    int kodu = Convert.ToInt32(dataGridView1.Rows[i].Cells["UrunKodu"].Value);
-                    string adi = dataGridView1.Rows[i].Cells["UrunAdi"].Value.ToString();
-                    double fiyat = Convert.ToDouble(dataGridView1.Rows[i].Cells["Urunkg"].Value);
-
-                    string içerik = kodu.ToString() + ";" + "\t\t" + adi + ";" + "\t\t" + fiyat.ToString("N2");
-                    File.AppendAllText(sf.FileName, içerik + Environment.NewLine);
-                }
-            }
-            Cursor.Current = Cursors.Default;
-            /*TextWriter writer = new StreamWriter(@"C:\Users\GURKAN\source\repos\MarketApp\Huseyin_Gurkan_CAKİR\Huseyin_Gurkan_CAKİR\UrunData.txt");
-
-            for (int i = 0; i < dataGridView1.Rows.Count; i++)
-            {
-                for (int j = 0; j < dataGridView1.Columns.Count; j++)
-                {
-                    writer.Write("\t" + dataGridView1.Rows[i].Cells[j].Value.ToString());
-                }
-                writer.WriteLine("");
-            }
-            writer.Close();*/
-        }
         /*private void DosyaOlustur1()
 {
    Cursor.Current = Cursors.WaitCursor;
@@ -207,6 +218,42 @@ namespace Huseyin_Gurkan_CAKİR
        }
    }
    Cursor.Current = Cursors.Default;
-}*/
+}
+        
+         
+         
+
+
+
+        Cursor.Current = Cursors.WaitCursor;
+            SaveFileDialog sf = new SaveFileDialog();
+            sf.Filter = "(*.txt)|*.txt";
+            sf.FileName = "UrunDatam";
+            if (sf.ShowDialog() == DialogResult.OK)
+            {
+                FileStream fs = new FileStream(sf.FileName, FileMode.OpenOrCreate, FileAccess.Write);
+                fs.Close();
+
+                for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+                {
+
+                    int kodu = Convert.ToInt32(dataGridView1.Rows[i].Cells["UrunKodu"].Value);
+
+                    string adi = dataGridView1.Rows[i].Cells["UrunAdi"].Value.ToString();
+                    double fiyat = Convert.ToDouble(dataGridView1.Rows[i].Cells["Urunkg"].Value);
+
+                    string içerik = kodu.ToString() + ";" + "\t\t" + adi + ";" + "\t\t" + fiyat.ToString("N2");
+                    File.AppendAllText(sf.FileName, içerik + Environment.NewLine);
+                }
+            }
+            Cursor.Current = Cursors.Default;
+         
+         
+         
+         
+         
+         
+         
+         */
     }
 }

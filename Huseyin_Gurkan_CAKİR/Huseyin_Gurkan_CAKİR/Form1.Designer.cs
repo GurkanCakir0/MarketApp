@@ -61,7 +61,6 @@ namespace Huseyin_Gurkan_CAKİR
             this.UrunKodu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UrunAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Urunkg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -359,23 +358,12 @@ namespace Huseyin_Gurkan_CAKİR
             this.Urunkg.MinimumWidth = 6;
             this.Urunkg.Name = "Urunkg";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(426, 27);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 27;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // MARKETAPP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1235, 667);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.bul1);
             this.Controls.Add(this.bul);
@@ -449,7 +437,6 @@ namespace Huseyin_Gurkan_CAKİR
         private System.Windows.Forms.DataGridViewTextBoxColumn UrunKodu;
         private System.Windows.Forms.DataGridViewTextBoxColumn UrunAdi;
         private System.Windows.Forms.DataGridViewTextBoxColumn Urunkg;
-        private System.Windows.Forms.Button button1;
     }
 }
 

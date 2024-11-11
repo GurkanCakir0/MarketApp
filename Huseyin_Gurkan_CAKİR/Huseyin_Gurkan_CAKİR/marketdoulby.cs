@@ -43,12 +43,12 @@ namespace Huseyin_Gurkan_CAKİR
         }
         public void Sil(int k)
         {
-
             if (Head == null)
             {
                 System.Windows.Forms.MessageBox.Show("Ürün Listesi Boş");
                 return;
             }
+
             Urun temp = Head;
             if (temp.kodu == k)
             {
@@ -61,45 +61,55 @@ namespace Huseyin_Gurkan_CAKİR
                 {
                     Tail = null;
                 }
+                System.Windows.Forms.MessageBox.Show("Ürün Silindi");
                 return;
             }
+
             while (temp != null && temp.kodu != k)
             {
                 temp = temp.Sonraki;
             }
-            if (temp != null)
-            {
-                if (temp.Onceki != null)
-                {
-                    temp.Onceki.Sonraki = temp.Sonraki;
-                }
-                if (temp.Sonraki != null)
-                {
-                    temp.Sonraki.Onceki = temp.Onceki;
-                }
 
-                else
-                {
-                    Tail = temp.Onceki;
-                }
-                System.Windows.Forms.MessageBox.Show("Ürün Silindi");
+            if (temp == null)
+            {
+                System.Windows.Forms.MessageBox.Show("Ürün Bulunamadı");
+                return;
+            }
+
+            if (temp.Sonraki != null)
+            {
+                temp.Sonraki.Onceki = temp.Onceki;
             }
             else
             {
-                System.Windows.Forms.MessageBox.Show("Ürün Bulunamadı");
+                Tail = temp.Onceki;
             }
+
+            if (temp.Onceki != null)
+            {
+                temp.Onceki.Sonraki = temp.Sonraki;
+            }
+
+            System.Windows.Forms.MessageBox.Show("Ürün Silindi");
         }
         public void Guncelle(int k, double yf)
         {
+            if (Head == null)
+            {
+                System.Windows.Forms.MessageBox.Show("Ürün Listesi Boş");
+                return;
+            }
             Urun temp = Head;
             while (temp != null)
             {
                 if (temp.kodu == k)
                 {
                     temp.fiyat = yf;
+                    System.Windows.Forms.MessageBox.Show("Ürün Fiyatı Güncellendi");
                     return;
                 }
                 temp = temp.Sonraki;
+                
             }
             System.Windows.Forms.MessageBox.Show("Ürün Bulunamadı");
         }
