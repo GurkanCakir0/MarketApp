@@ -21,6 +21,7 @@ namespace Huseyin_Gurkan_CAKİR
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Listele();
         }
 
         private void ekle_Click(object sender, EventArgs e)
@@ -69,7 +70,6 @@ namespace Huseyin_Gurkan_CAKİR
                     {
                         dataGridView1.Rows.Remove(row);
                         YazDosya();
-                        MessageBox.Show("Ürün başarıyla silindi.");
                         market.Sil(k);
                         textBox4.Clear();
                         textBox5.Clear();
@@ -103,6 +103,7 @@ namespace Huseyin_Gurkan_CAKİR
                         return;
                     }
                 }
+                MessageBox.Show("Ürün bulunamadı.");
             }
             else
             {
@@ -123,35 +124,7 @@ namespace Huseyin_Gurkan_CAKİR
         }
 
         private void listele_Click(object sender, EventArgs e)
-        {
-            string dosyaYolu = "urunler.txt";
-
-            try
-            {
-                using (StreamReader sr = new StreamReader(dosyaYolu))
-                {
-                    dataGridView1.Rows.Clear();
-                    string satir;
-                    while ((satir = sr.ReadLine()) != null)
-                    {
-                        string[] parcalar = satir.Split(',');
-
-                        if (parcalar.Length == 3)
-                        {
-                            int kod = int.Parse(parcalar[0]);
-                            string ad = parcalar[1];
-                            double fiyat = double.Parse(parcalar[2]);
-
-                            dataGridView1.Rows.Add(kod, ad, fiyat);
-                        }
-                    }
-                }
-                MessageBox.Show("Veriler başarıyla yüklendi.");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Dosya okunurken bir hata oluştu: " + ex.Message);
-            }
+        { 
             ListeleUrunler();
         }
 
@@ -214,64 +187,35 @@ namespace Huseyin_Gurkan_CAKİR
             }
         }
 
-        /*private void DosyaOlustur1()
-{
-   Cursor.Current = Cursors.WaitCursor;
-   SaveFileDialog sf = new SaveFileDialog();
-   sf.Filter = "Text Dosyası (*.txt)|*.txt";
-   sf.FileName = "Urun Data";
-   if (sf.ShowDialog() == DialogResult.OK)
-   {
-       FileStream fs = new FileStream(sf.FileName, FileMode.OpenOrCreate, FileAccess.Write);
-       fs.Close();
-       for (int i = 0; i < dataGridView1.Rows.Count; i++)
-       {
+        private void Listele()
+        {
+            string dosyaYolu = "UrunVeri.txt";
 
-           int kodu = Convert.ToInt32(dataGridView1.Rows[i].Cells["UrunKodu"].Value);
-           string adi = dataGridView1.Rows[i].Cells["UrunAdi"].Value.ToString();
-           double fiyat = Convert.ToDouble(dataGridView1.Rows[i].Cells["Urunkg"].Value);
-
-           string içerik = kodu.ToString() + ";" + "\t\t" + adi + ";" + "\t\t" + fiyat.ToString("N2");
-           File.AppendAllText(sf.FileName, içerik + Environment.NewLine);
-       }
-   }
-   Cursor.Current = Cursors.Default;
-}
-        
-         
-         
-
-
-
-        Cursor.Current = Cursors.WaitCursor;
-            SaveFileDialog sf = new SaveFileDialog();
-            sf.Filter = "(*.txt)|*.txt";
-            sf.FileName = "UrunDatam";
-            if (sf.ShowDialog() == DialogResult.OK)
+            try
             {
-                FileStream fs = new FileStream(sf.FileName, FileMode.OpenOrCreate, FileAccess.Write);
-                fs.Close();
-
-                for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+                using (StreamReader sr = new StreamReader(dosyaYolu))
                 {
+                    dataGridView1.Rows.Clear();
+                    string satir;
+                    while ((satir = sr.ReadLine()) != null)
+                    {
+                        string[] parcalar = satir.Split(';');
 
-                    int kodu = Convert.ToInt32(dataGridView1.Rows[i].Cells["UrunKodu"].Value);
+                        if (parcalar.Length == 3)
+                        {
+                            int kodu = int.Parse(parcalar[0]);
+                            string adi = parcalar[1];
+                            double fiyat = double.Parse(parcalar[2]);
 
-                    string adi = dataGridView1.Rows[i].Cells["UrunAdi"].Value.ToString();
-                    double fiyat = Convert.ToDouble(dataGridView1.Rows[i].Cells["Urunkg"].Value);
-
-                    string içerik = kodu.ToString() + ";" + "\t\t" + adi + ";" + "\t\t" + fiyat.ToString("N2");
-                    File.AppendAllText(sf.FileName, içerik + Environment.NewLine);
+                            dataGridView1.Rows.Add(kodu, adi, fiyat);
+                        }
+                    }
                 }
             }
-            Cursor.Current = Cursors.Default;
-         
-         
-         
-         
-         
-         
-         
-         */
+            catch (Exception ex)
+            {
+                MessageBox.Show("Dosya okunurken bir hata oluştu: " + ex.Message);
+            }
+        }
     }
 }

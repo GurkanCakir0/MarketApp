@@ -1,2 +1,6 @@
-12,asd,12
-35,asfa,35
+1;Elma;30
+2;Armut;50
+3;Mandalina;30
+4;Portakal;40,5
+5;Çilek;70
+6;Nektari;55,5
